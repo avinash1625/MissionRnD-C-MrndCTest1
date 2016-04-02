@@ -33,24 +33,53 @@ Difficulty : Medium
 
 int * find_sequences(int *arr, int len){
 	//Return final array which has 6indexes [AP1_S,AP1_E,AP2_S,AP2_E,GP1_S,GP2_E]
-	if (arr==NULL||len<=3)
-	return NULL;
-	int a[6],i,d,r,count=0,k;
-	d = a[1] - a[0];
-	r = a[1] / a[0];
-	for (i = 0; i < 3; i++)
+	/*int d = -1, r = -1, i = 0, j = 1, k = 2, a[6] = { 0 }, flag = 0;
+	if (arr == NULL || len <0)
+		return NULL;
+	while (1)
 	{
-		for (k = 0; k < len; k++){
-			if (a[i + 1] - a[i] == a[i+2]-a[i+1])
-			{
-				count++;
-			}
-			else if (a[i + 1] / a[i] == a[i+2]/a[i+1])
-				count++;
-			else
-				break;
+		if (len < 3)
+			return NULL;
+		if (arr[i])*(arr[k]) == (arr[j])*(arr[j+1]))
+			r = (arr[i+1]) / (arr[0]);
+		else if (arr[i] + arr[k] == 2 * (arr[j])
+		{
+			d = arr[j]- arr[i];
 		}
-		a[i] = 1;
+		if (d != -1)
+		{
+			arr[flag++] = i;
+			while (arr[i] + d == arr[i+1])
+			{
+				i++;
+			}
+			arr[flag++] = i;
+			i++;
+			j = i + 1;
+			k = i + 2;
+			d = -1;
+		}
+		if (r != -1)
+		{
+			arr[4] = i;
+			while (arr[i] * r == arr[i + 1])
+			{
+				i++;
+
+			}
+			arr[5] = i;
+			i++;
+			j = i + 1;
+			k = i + 2;
+			r = -1;
+		}
+
+		if (i >= len || j >= len || k >= len)
+			return a;
+
 	}
-	return a;
+	return NULL;
+}*/
+	return NULL;
+
 }
