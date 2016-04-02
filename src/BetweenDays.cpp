@@ -28,7 +28,20 @@ struct node{
 	struct node *next;
 };
 
-
+int num(struct node*head, int count)
+{
+	int num = 0;
+	while (count != 0)
+	{
+		num =num*10+ head->data;
+		count--;
+	}
+	return num;
+}
 int between_days(struct node *date1head, struct node *date2head){
-	return -1;
+	if (date1head==NULL&&date2head==NULL)
+		return -1;
+
+
+
 }

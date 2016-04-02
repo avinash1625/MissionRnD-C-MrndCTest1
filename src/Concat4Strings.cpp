@@ -28,6 +28,23 @@ Difficulty : Hard
 #include <stdio.h>
 
 char * concat_4strings(char *s1, char *s2, char *s3, char *s4){
-	//Return the new string created.
+	if (s1==NULL&&s2==NULL&&s3==NULL&&s4==NULL)
 	return NULL;
+	int i ,j;
+	char t[100];
+	char *s = (char *)malloc(sizeof(char)*(strlen(s1) + strlen(s2) + strlen(s3) + strlen(s4)));
+	char str[4][100];
+	strcpy(str[0], s1);
+	strcpy(str[1], s2);
+	strcpy(str[2], s3);
+	strcpy(str[3], s4);
+	for (i = 1; i < 5; i++) {
+		for (j = 1; j < 5; j++) {
+			if (strcmp(str[j - 1], str[j]) > 0) {
+				strcpy(t, str[j - 1]);
+				strcpy(str[j - 1], str[j]);
+				strcpy(str[j], t);
+			}
+		}
+	}
 }

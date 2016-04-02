@@ -27,12 +27,62 @@ Difficulty : Medium
 */
 #include <stdlib.h>
 #include <stdio.h>
-
+void Make_it_SLL(struct node **head);
+struct node * merge2LinkedLists(struct node *head1, struct node *head2);
 struct node{
 	int data;
 	struct node *next;
 };
 int merge_circularlists(struct node **head1, struct node **head2){
-	//Returns Length of merged Sorted circular SLL and also points *head1 to final SLL .
-	return -1;
+	if (*head1 == NULL || *head2 == NULL)
+		return -1;
+	struct node *temp1 = NULL, *temp2 = NULL;
+	int count = 0;
+	Make_it_SLL(head1);
+	Make_it_SLL(head2);
+	temp1 = *head1;
+	temp2 = *head2;
+	temp1 = merge2LinkedLists(temp1, temp2);
+	temp2 = temp1;
+	while (temp1->next != NULL)
+	{
+		temp1 = temp1->next;
+		count++;
+	}
+	count++;
+	temp1->next = temp2;
+	head1 = &temp2;
+	return count;
+}
+void Make_it_SLL(struct node **head)
+{
+	struct node *temp1 = NULL, *temp2 = NULL;
+	temp1 = *head;
+	temp2 = *head;
+	while (temp1 != temp2->next)
+	{
+		temp2 = temp2->next;
+	}
+	temp2->next = NULL;
+
+}
+struct node * merge2LinkedLists(struct node *head1, struct node *head2) {
+	if (head1 == NULL&&head2 == NULL)
+		return NULL;
+	struct node* head3 = NULL;
+	if (head1 == NULL)
+		return head2;
+	if (head2 == NULL)
+		return head1;
+	if (head1->data <= head2->data)
+	{
+		head3 = head1;
+		head3->next = merge2LinkedLists(head2, head1->next);
+	}
+	else
+	{
+		head3 = head2;
+		head3->next = merge2LinkedLists(head1, head2->next);
+	}
+	return head3;
 }
